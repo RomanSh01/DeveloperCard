@@ -1,16 +1,33 @@
-//
-//  ContentView.swift
-//  DeveloperCard
-//
-//  Created by Роман Шабардин on 05/01/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            Color(red: 0.09, green: 0.63, blue: 0.52)
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            VStack {
+                
+                Image("roman")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height:300)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Circle().stroke(Color.white, lineWidth: 5)
+                    )
+                
+                Text("Roman Shabardin")
+                    .font(Font.custom("Pacifico-Regular", size: 40))
+                    .bold()
+                .foregroundColor(.white)
+                Text("iOS Developer")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                Divider()
+                InfoView(text: "+48 555 555 555", imageName: "phone.fill")
+                InfoView(text: "shabardin@gmail.com", imageName: "envelope.fill")
+            }
+        }
     }
 }
 
